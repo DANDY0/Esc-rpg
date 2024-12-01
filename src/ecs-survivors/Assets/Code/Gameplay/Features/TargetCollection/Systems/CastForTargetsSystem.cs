@@ -7,7 +7,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
 {
     public class CastForTargetsSystem: IExecuteSystem
     {
-        private IPhysicsService _physicsService;
+        private readonly IPhysicsService _physicsService;
         private readonly IGroup<GameEntity> _ready;
         private List<GameEntity> _buffer = new(64);
 

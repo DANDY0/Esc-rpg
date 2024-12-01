@@ -5,12 +5,12 @@ namespace Code.Common.Destruct
 {
     public class ProcessDestructedFeature: Feature
     {
-        public ProcessDestructedFeature(ISystemFactory systemFactory)
+        public ProcessDestructedFeature(ISystemFactory systems)
         {
-            Add(systemFactory.Create<SelfDestructTimerSystem>());
+            Add(systems.Create<SelfDestructTimerSystem>());
             
-            Add(systemFactory.Create<CleanupGameDestructedSystem>());
-            Add(systemFactory.Create<CleanupGameDestructedViewSystem>());
+            Add(systems.Create<CleanupGameDestructedViewSystem>());
+            Add(systems.Create<CleanupGameDestructedSystem>());
         } 
     }
 }

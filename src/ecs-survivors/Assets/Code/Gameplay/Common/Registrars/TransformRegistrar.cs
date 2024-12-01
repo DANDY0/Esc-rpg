@@ -1,6 +1,6 @@
 ﻿using Code.Infrastructure.View;
 
-namespace Code.Gameplay.Features.Hero.Registrars
+namespace Code.Gameplay.Common.Registrars
 {
     public class TransformRegistrar : EntityComponentRegistrar
     {

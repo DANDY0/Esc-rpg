@@ -1,16 +1,17 @@
 ﻿using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Movement.Systems;
+using Code.Infrastructure.Systems;
+using Unity.VisualScripting;
 
 namespace Code.Gameplay.Features.Movement
 {
   public class MovementFeature : Feature
   {
-    public MovementFeature(GameContext gameContext, ITimeService timeService)
+    public MovementFeature(ISystemFactory systems)
     {
-      Add(new DirectionalDeltaMoveSystem(gameContext, timeService));
-      
-      Add(new TurnAlongDirectionSystem(gameContext));
-      Add(new UpdateTransformPositionSystem(gameContext));
+      Add(systems.Create<DirectionalDeltaMoveSystem>());
+      Add(systems.Create<TurnAlongDirectionSystem>());
+      Add(systems.Create<UpdateTransformPositionSystem>());
     }
   }
 }

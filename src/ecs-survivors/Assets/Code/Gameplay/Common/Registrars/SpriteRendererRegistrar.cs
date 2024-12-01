@@ -9,14 +9,13 @@ namespace Code.Gameplay.Common.Registrars
       
         public override void RegisterComponents()
         {
-            Entity
-                .AddSpriteRenderer(SpriteRenderer);
+            Entity.AddSpriteRenderer(SpriteRenderer);
         }
 
         public override void UnregisterComponents()
         {
-            Entity
-                .RemoveSpriteRenderer();
+            if(Entity.hasSpriteRenderer)
+                Entity.RemoveSpriteRenderer();
         }
     }
 }

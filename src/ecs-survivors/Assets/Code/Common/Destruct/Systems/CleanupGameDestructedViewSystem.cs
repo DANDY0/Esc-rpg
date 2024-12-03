@@ -15,7 +15,6 @@ namespace Code.Common.Destruct.Systems
 
         public void Cleanup()
         {
-            
             foreach (GameEntity entity in _entities)
             {
                 entity.View.ReleaseEntity();

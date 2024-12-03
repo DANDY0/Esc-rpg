@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Common.Time;
+﻿using System.Collections.Generic;
+using Code.Gameplay.Common.Time;
 using Entitas;
 
 namespace Code.Common.Destruct.Systems
@@ -7,6 +8,7 @@ namespace Code.Common.Destruct.Systems
     {
         private readonly ITimeService _time;
         private readonly IGroup<GameEntity> _entities;
+        private List<GameEntity> _buffer = new List<GameEntity>(128);
 
         public SelfDestructTimerSystem(GameContext game, ITimeService time)
         {
@@ -16,7 +18,7 @@ namespace Code.Common.Destruct.Systems
         
         public void Execute()
         {
-            foreach (var entity in _entities)
+            foreach (var entity in _entities.GetEntities(_buffer))
             {
                 if (entity.SelfDestructTimer > 0)
                     entity.ReplaceSelfDestructTimer(entity.SelfDestructTimer - _time.DeltaTime);

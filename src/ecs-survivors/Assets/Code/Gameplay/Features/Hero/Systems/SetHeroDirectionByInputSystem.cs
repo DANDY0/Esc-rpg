@@ -2,14 +2,17 @@
 
 namespace Code.Gameplay.Features.Hero.Systems
 {
-  public class SetHeroDirectionByInputSystem : IExecuteSystem
+  public class  SetHeroDirectionByInputSystem : IExecuteSystem
   {
     private readonly IGroup<GameEntity> _heroes;
     private readonly IGroup<GameEntity> _inputs;
 
     public SetHeroDirectionByInputSystem(GameContext game)
     {
-      _heroes = game.GetGroup(GameMatcher.Hero);
+      _heroes = game.GetGroup(GameMatcher
+        .AllOf(
+          GameMatcher.Hero,
+          GameMatcher.MovementAvailable));
       _inputs = game.GetGroup(GameMatcher.Input);
     }
     

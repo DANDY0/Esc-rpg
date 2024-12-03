@@ -27,19 +27,20 @@ public static class GameComponentsLookup {
     public const int MaxHP = 16;
     public const int ProcessingDeath = 17;
     public const int Direction = 18;
-    public const int Moving = 19;
-    public const int Speed = 20;
-    public const int TurnedAlongDirection = 21;
-    public const int CollectTargetsInterval = 22;
-    public const int CollectTargetsTimer = 23;
-    public const int LayerMask = 24;
-    public const int Radius = 25;
-    public const int ReadyToCollectTargets = 26;
-    public const int TargetsBuffer = 27;
-    public const int AxisInput = 28;
-    public const int Input = 29;
+    public const int MovementAvailable = 19;
+    public const int Moving = 20;
+    public const int Speed = 21;
+    public const int TurnedAlongDirection = 22;
+    public const int CollectTargetsInterval = 23;
+    public const int CollectTargetsTimer = 24;
+    public const int LayerMask = 25;
+    public const int Radius = 26;
+    public const int ReadyToCollectTargets = 27;
+    public const int TargetsBuffer = 28;
+    public const int AxisInput = 29;
+    public const int Input = 30;
 
-    public const int TotalComponents = 30;
+    public const int TotalComponents = 31;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -61,6 +62,7 @@ public static class GameComponentsLookup {
         "MaxHP",
         "ProcessingDeath",
         "Direction",
+        "MovementAvailable",
         "Moving",
         "Speed",
         "TurnedAlongDirection",
@@ -94,6 +96,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.LifeTime.MaxHP),
         typeof(Code.Gameplay.Features.LifeTime.ProcessingDeath),
         typeof(Code.Gameplay.Features.Movement.Direction),
+        typeof(Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Code.Gameplay.Features.Movement.Moving),
         typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Features.Movement.TurnedAlongDirection),

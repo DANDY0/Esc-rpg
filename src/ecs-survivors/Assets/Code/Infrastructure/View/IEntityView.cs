@@ -11,3 +11,4 @@ namespace Code.Infrastructure.View
         GameObject gameObject { get; }
     }
 }
+

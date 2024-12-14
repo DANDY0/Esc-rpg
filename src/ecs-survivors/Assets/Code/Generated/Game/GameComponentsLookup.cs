@@ -19,31 +19,35 @@ public static class GameComponentsLookup {
     public const int SpriteRenderer = 8;
     public const int Transform = 9;
     public const int WorldPosition = 10;
-    public const int Enemy = 11;
-    public const int EnemyAnimator = 12;
-    public const int EnemyTypeId = 13;
-    public const int SpawnTimer = 14;
-    public const int Hero = 15;
-    public const int HeroAnimator = 16;
-    public const int CurrentHP = 17;
-    public const int Dead = 18;
-    public const int MaxHP = 19;
-    public const int ProcessingDeath = 20;
-    public const int Direction = 21;
-    public const int MovementAvailable = 22;
-    public const int Moving = 23;
-    public const int Speed = 24;
-    public const int TurnedAlongDirection = 25;
-    public const int CollectTargetsInterval = 26;
-    public const int CollectTargetsTimer = 27;
-    public const int LayerMask = 28;
-    public const int Radius = 29;
-    public const int ReadyToCollectTargets = 30;
-    public const int TargetsBuffer = 31;
-    public const int AxisInput = 32;
-    public const int Input = 33;
+    public const int AbilityId = 11;
+    public const int Cooldown = 12;
+    public const int CooldownLeft = 13;
+    public const int CooldownUp = 14;
+    public const int Enemy = 15;
+    public const int EnemyAnimator = 16;
+    public const int EnemyTypeId = 17;
+    public const int SpawnTimer = 18;
+    public const int Hero = 19;
+    public const int HeroAnimator = 20;
+    public const int CurrentHP = 21;
+    public const int Dead = 22;
+    public const int MaxHP = 23;
+    public const int ProcessingDeath = 24;
+    public const int Direction = 25;
+    public const int MovementAvailable = 26;
+    public const int Moving = 27;
+    public const int Speed = 28;
+    public const int TurnedAlongDirection = 29;
+    public const int CollectTargetsInterval = 30;
+    public const int CollectTargetsTimer = 31;
+    public const int LayerMask = 32;
+    public const int Radius = 33;
+    public const int ReadyToCollectTargets = 34;
+    public const int TargetsBuffer = 35;
+    public const int AxisInput = 36;
+    public const int Input = 37;
 
-    public const int TotalComponents = 34;
+    public const int TotalComponents = 38;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -57,6 +61,10 @@ public static class GameComponentsLookup {
         "SpriteRenderer",
         "Transform",
         "WorldPosition",
+        "AbilityId",
+        "Cooldown",
+        "CooldownLeft",
+        "CooldownUp",
         "Enemy",
         "EnemyAnimator",
         "EnemyTypeId",
@@ -94,6 +102,10 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Common.SpriteRendererComponent),
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
+        typeof(Code.Gameplay.Features.Abilities.AbilityComponents.AbilityIdComponent),
+        typeof(Code.Gameplay.Features.Cooldowns.CooldownComponents.Cooldown),
+        typeof(Code.Gameplay.Features.Cooldowns.CooldownComponents.CooldownLeft),
+        typeof(Code.Gameplay.Features.Cooldowns.CooldownComponents.CooldownUp),
         typeof(Code.Gameplay.Features.Enemies.Enemy),
         typeof(Code.Gameplay.Features.Enemies.EnemyAnimatorComponent),
         typeof(Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),

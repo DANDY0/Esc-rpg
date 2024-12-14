@@ -2,7 +2,7 @@
 
 namespace Code.Gameplay.Features.Enemies.Systems
 {
-    public class EnemyChaseHeroSystem: IExecuteSystem
+    public class EnemyChaseHeroSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _enemies;
         private readonly IGroup<GameEntity> _heroes;
@@ -19,7 +19,7 @@ namespace Code.Gameplay.Features.Enemies.Systems
                     GameMatcher.Hero,
                     GameMatcher.WorldPosition));
         }
-        
+
         public void Execute()
         {
             foreach (var hero in _heroes)

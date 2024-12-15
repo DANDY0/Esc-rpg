@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Features.Cooldowns.CooldownComponents.CooldownLeft cooldownLeft { get { return (Code.Gameplay.Features.Cooldowns.CooldownComponents.CooldownLeft)GetComponent(GameComponentsLookup.CooldownLeft); } }
+    public Code.Gameplay.Features.Cooldowns.CooldownLeft cooldownLeft { get { return (Code.Gameplay.Features.Cooldowns.CooldownLeft)GetComponent(GameComponentsLookup.CooldownLeft); } }
     public float CooldownLeft { get { return cooldownLeft.Value; } }
     public bool hasCooldownLeft { get { return HasComponent(GameComponentsLookup.CooldownLeft); } }
 
     public GameEntity AddCooldownLeft(float newValue) {
         var index = GameComponentsLookup.CooldownLeft;
-        var component = (Code.Gameplay.Features.Cooldowns.CooldownComponents.CooldownLeft)CreateComponent(index, typeof(Code.Gameplay.Features.Cooldowns.CooldownComponents.CooldownLeft));
+        var component = (Code.Gameplay.Features.Cooldowns.CooldownLeft)CreateComponent(index, typeof(Code.Gameplay.Features.Cooldowns.CooldownLeft));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceCooldownLeft(float newValue) {
         var index = GameComponentsLookup.CooldownLeft;
-        var component = (Code.Gameplay.Features.Cooldowns.CooldownComponents.CooldownLeft)CreateComponent(index, typeof(Code.Gameplay.Features.Cooldowns.CooldownComponents.CooldownLeft));
+        var component = (Code.Gameplay.Features.Cooldowns.CooldownLeft)CreateComponent(index, typeof(Code.Gameplay.Features.Cooldowns.CooldownLeft));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

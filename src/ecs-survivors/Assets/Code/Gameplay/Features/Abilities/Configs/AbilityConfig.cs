@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Code.Gameplay.Features.Abilities.Configs
 {
@@ -7,6 +8,6 @@ namespace Code.Gameplay.Features.Abilities.Configs
     public class AbilityConfig: ScriptableObject
     {
         public AbilityId AbilityId;
-        public List<AbilityLevel> AbilityLevels;
+        [FormerlySerializedAs("AbilityLevels")] public List<AbilityLevel> Levels;
     }
 }

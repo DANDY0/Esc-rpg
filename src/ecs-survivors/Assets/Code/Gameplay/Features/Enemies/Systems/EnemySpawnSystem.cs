@@ -55,24 +55,24 @@ namespace Code.Gameplay.Features.Enemies.Systems
 
         private Vector2 HorizontalSpawnPosition(Vector2 heroWorldPosition)
         {
-            Vector2[] horizontalDirections = {Vector2.left, Vector2.right};
+            Vector2[] horizontalDirections = { Vector2.left, Vector2.right };
             Vector2 primaryDirection = horizontalDirections.PickRandom();
-
+      
             float horizontalOffsetDistance = _cameraProvider.WorldScreenWidth / 2 + SpawnDistanceGap;
-            float verticalRandomOffset = Random.Range(-_cameraProvider.WorldScreenHeight/2, _cameraProvider.WorldScreenHeight/2);
+            float verticalRandomOffset = Random.Range(-_cameraProvider.WorldScreenHeight / 2, _cameraProvider.WorldScreenHeight / 2);
 
             return heroWorldPosition + primaryDirection * horizontalOffsetDistance + Vector2.up * verticalRandomOffset;
         }
 
         private Vector2 VerticalSpawnPosition(Vector2 heroWorldPosition)
         {
-            Vector2[] verticalDirections = {Vector2.up, Vector2.down};
+            Vector2[] verticalDirections = { Vector2.up, Vector2.down };
             Vector2 primaryDirection = verticalDirections.PickRandom();
+      
+            float verticalOffsetDistance = _cameraProvider.WorldScreenHeight / 2 + SpawnDistanceGap;
+            float horizontalRandomOffset = Random.Range(-_cameraProvider.WorldScreenWidth / 2, _cameraProvider.WorldScreenWidth / 2);
 
-            float verticalOffsetDistance = _cameraProvider.WorldScreenWidth / 2 + SpawnDistanceGap;
-            float horizontalRandomOffset = Random.Range(-_cameraProvider.WorldScreenHeight / 2, _cameraProvider.WorldScreenHeight / 2);
-
-            return heroWorldPosition + primaryDirection * verticalOffsetDistance + Vector2.up * horizontalRandomOffset;
+            return heroWorldPosition + primaryDirection * verticalOffsetDistance + Vector2.right * horizontalRandomOffset;
         }
     }
 }

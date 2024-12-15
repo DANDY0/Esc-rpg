@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Features.Abilities.AbilityComponents.AbilityIdComponent abilityId { get { return (Code.Gameplay.Features.Abilities.AbilityComponents.AbilityIdComponent)GetComponent(GameComponentsLookup.AbilityId); } }
+    public Code.Gameplay.Features.Abilities.AbilityIdComponent abilityId { get { return (Code.Gameplay.Features.Abilities.AbilityIdComponent)GetComponent(GameComponentsLookup.AbilityId); } }
     public Code.Gameplay.Features.Abilities.AbilityId AbilityId { get { return abilityId.Value; } }
     public bool hasAbilityId { get { return HasComponent(GameComponentsLookup.AbilityId); } }
 
     public GameEntity AddAbilityId(Code.Gameplay.Features.Abilities.AbilityId newValue) {
         var index = GameComponentsLookup.AbilityId;
-        var component = (Code.Gameplay.Features.Abilities.AbilityComponents.AbilityIdComponent)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.AbilityComponents.AbilityIdComponent));
+        var component = (Code.Gameplay.Features.Abilities.AbilityIdComponent)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.AbilityIdComponent));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceAbilityId(Code.Gameplay.Features.Abilities.AbilityId newValue) {
         var index = GameComponentsLookup.AbilityId;
-        var component = (Code.Gameplay.Features.Abilities.AbilityComponents.AbilityIdComponent)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.AbilityComponents.AbilityIdComponent));
+        var component = (Code.Gameplay.Features.Abilities.AbilityIdComponent)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.AbilityIdComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

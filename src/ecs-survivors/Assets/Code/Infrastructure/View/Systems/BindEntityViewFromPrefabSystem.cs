@@ -14,9 +14,8 @@ namespace Code.Infrastructure.View.Systems
         {
             _entityViewFactory = entityViewFactory;
             _entities = game.GetGroup(GameMatcher
-                .AllOf(
-                    GameMatcher.ViewPrefab,
-                    GameMatcher.View));
+                .AllOf(GameMatcher.ViewPrefab) 
+                .NoneOf(GameMatcher.View));
         }
 
         public void Execute()

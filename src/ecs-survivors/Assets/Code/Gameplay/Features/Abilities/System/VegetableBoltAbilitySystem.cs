@@ -50,6 +50,7 @@ namespace Code.Gameplay.Features.Abilities.System
                 _armamentsFactory
                     .CreateVegetableBolt(1, hero.WorldPosition)
                     .ReplaceDirection((FirstAvailableTarget().WorldPosition - hero.WorldPosition).normalized)
+                    .AddProducerId(hero.Id)
                     .With(x => x.isMoving = true);
                 
                 ability.PutOnCooldown(_staticDataService.GetAbilityLevel(AbilityId.VegetableBolt, 1).Cooldown);

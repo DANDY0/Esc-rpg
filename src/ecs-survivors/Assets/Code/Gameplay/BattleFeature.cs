@@ -2,6 +2,8 @@
  using Code.Gameplay.Features.Abilities;
  using Code.Gameplay.Features.Armaments.Factory;
  using Code.Gameplay.Features.DamageApplication;
+ using Code.Gameplay.Features.EffectApplication;
+ using Code.Gameplay.Features.Effects;
  using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.LifeTime;
@@ -29,9 +31,13 @@ namespace Code.Gameplay
       
       Add(systems.Create<ArmamentFeature>());
 
+      // Add(systems.Create<DamageApplicationFeature>());
+
       Add(systems.Create<CollectTargetsFeature>());
-      Add(systems.Create<DamageApplicationFeature>());
+      Add(systems.Create<EffectApplicationFeature>());
       
+      Add(systems.Create<EffectFeature>());
+
       Add(systems.Create<ProcessDestructedFeature>());
     }
   }

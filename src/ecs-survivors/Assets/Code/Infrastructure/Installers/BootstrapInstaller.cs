@@ -5,6 +5,7 @@ using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Abilities.Factory;
 using Code.Gameplay.Features.Armaments.Factory;
+using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.Enemies.Factory;
 using Code.Gameplay.Features.Hero.Registrars;
 using Code.Gameplay.Input.Service;
@@ -62,6 +63,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle(); 
       Container.Bind<IArmamentsFactory>().To<ArmamentsFactory>().AsSingle(); 
       Container.Bind<IAbilityFactory>().To<AbilityFactory>().AsSingle(); 
+      Container.Bind<IEffectsFactory>().To<EffectsFactory>().AsSingle(); 
     }
 
     

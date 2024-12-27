@@ -28,6 +28,5 @@ namespace Code.Gameplay.Features.LifeTime
                 }
             }
         }
-        
     }
 }

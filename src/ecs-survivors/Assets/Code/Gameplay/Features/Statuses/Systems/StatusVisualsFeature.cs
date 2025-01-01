@@ -1,5 +1,5 @@
-﻿using Code.Gameplay.Features.EffectApplication;
-using Code.Gameplay.Features.Statuses.StatusVisual;
+﻿using Code.Gameplay.Features.Statuses.StatusVisual;
+using Code.Gameplay.Features.Statuses.Systems.StatusVisual;
 using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Statuses
@@ -8,8 +8,11 @@ namespace Code.Gameplay.Features.Statuses
     {
         public StatusVisualsFeature(ISystemFactory systems)
         {
+            Add(systems.Create<ApplyFreezeVisualsSystem>());
             Add(systems.Create<ApplyPoisonVisualsSystem>());
+            
             Add(systems.Create<UnApplyPoisonVisualsSystem>());
+            Add(systems.Create<UnApplyFreezeVisualsSystem>());
         }
     }
 }

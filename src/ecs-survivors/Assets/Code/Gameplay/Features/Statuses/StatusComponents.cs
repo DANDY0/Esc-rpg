@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using Entitas.CodeGeneration.Attributes;
 
 namespace Code.Gameplay.Features.Statuses
 {
@@ -11,10 +12,15 @@ namespace Code.Gameplay.Features.Statuses
 
         [Game] public class Period : IComponent { public float Value; }
         [Game] public class TimeSinceLastTick : IComponent { public float Value; }
+        [Game] public class ApplierStatusLink : IComponent { [EntityIndex] public int Value; }
 
         [Game] public class Applied : IComponent {  }
+        [Game] public class Affected : IComponent {  }
         [Game] public class UnApplied : IComponent {  }
+        
+        
         [Game] public class Poison : IComponent {  }
+        [Game] public class Freeze : IComponent {  }
 
     }
 }

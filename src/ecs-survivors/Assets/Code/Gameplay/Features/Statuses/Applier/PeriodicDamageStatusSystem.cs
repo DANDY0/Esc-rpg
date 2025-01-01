@@ -2,7 +2,7 @@
 using Code.Gameplay.Features.Effects;
 using Entitas;
 
-namespace Code.Gameplay.Features.Statuses
+namespace Code.Gameplay.Features.Statuses.Applier
 {
     public class PeriodicDamageStatusSystem : IExecuteSystem
     {

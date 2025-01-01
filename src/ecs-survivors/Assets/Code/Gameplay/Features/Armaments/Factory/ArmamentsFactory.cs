@@ -41,6 +41,7 @@ namespace Code.Gameplay.Features.Armaments.Factory
                 .AddLayerMask(CollisionLayer.Enemy.AsMask())
                 .With(x => x.isMovementAvailable = true)
                 .With(x => x.isReadyToCollectTargets  = true)
+                .With(x => x.isRotationAlignedAlongDirection  = true)
                 .With(x => x.isCollectingTargetsContinuously  = true)
                 .AddSelfDestructTimer(setup.LifeTime)
                 ;

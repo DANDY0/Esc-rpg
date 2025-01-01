@@ -2,19 +2,19 @@
 using Code.Gameplay.Features.Effects;
 using Entitas;
 
-namespace Code.Gameplay.Features.Statuses.StatusVisual
+namespace Code.Gameplay.Features.Statuses.Systems.StatusVisual
 {
-    public class ApplyPoisonVisualsSystem : ReactiveSystem<GameEntity>
+    public class ApplyFreezeVisualsSystem : ReactiveSystem<GameEntity>
     {
-        public ApplyPoisonVisualsSystem(GameContext game) : base(game)
+        public ApplyFreezeVisualsSystem(GameContext game) : base(game)
         {
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) 
-            => context.CreateCollector(GameMatcher.Poison.Added());
+            => context.CreateCollector(GameMatcher.Freeze.Added());
 
-        protected override bool Filter(GameEntity entity)
-            => entity.isStatus && entity.isPoison && entity.hasTargetId;
+        protected override bool Filter(GameEntity entity) 
+            => entity.isStatus && entity.isFreeze && entity.hasTargetId;
 
         protected override void Execute(List<GameEntity> statuses)
         {
@@ -22,7 +22,7 @@ namespace Code.Gameplay.Features.Statuses.StatusVisual
             {
                 var target = status.Target();
                 if (target is { hasStatusVisuals: true }) 
-                    target.StatusVisuals.ApplyPoison();
+                    target.StatusVisuals.ApplyFreeze();
             }
         }
     }

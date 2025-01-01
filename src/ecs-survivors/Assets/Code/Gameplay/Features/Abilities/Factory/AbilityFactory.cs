@@ -27,7 +27,6 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .AddAbilityId(AbilityId.VegetableBolt)
                 .AddCooldown(abilityLevel.Cooldown)
                 .With(x => x.isVegetableBoltAbility = true)
-                .With(x => x.isRotationAlignedAlongDirection = true)
                 .PutOnCooldown();
         }
     }

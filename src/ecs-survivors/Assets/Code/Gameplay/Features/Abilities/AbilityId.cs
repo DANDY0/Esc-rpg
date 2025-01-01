@@ -3,7 +3,10 @@
     public enum AbilityId
     {
         Unknown = 0 ,
-        VegetableBolt = 1
+        VegetableBolt = 1,
+        GarlicAura = 2,
+        OrbitingMushroom = 3,
+
     }
     
     

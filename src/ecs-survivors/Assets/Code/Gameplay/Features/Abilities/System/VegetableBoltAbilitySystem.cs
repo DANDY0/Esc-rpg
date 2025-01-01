@@ -12,7 +12,7 @@ namespace Code.Gameplay.Features.Abilities.System
     {
         private readonly IStaticDataService _staticDataService;
         private readonly IArmamentsFactory _armamentsFactory;
-        private List<GameEntity> _buffer = new(32);
+        private List<GameEntity> _buffer = new(1);
         
         private readonly IGroup<GameEntity> _abilities;
         private readonly IGroup<GameEntity> _heroes;

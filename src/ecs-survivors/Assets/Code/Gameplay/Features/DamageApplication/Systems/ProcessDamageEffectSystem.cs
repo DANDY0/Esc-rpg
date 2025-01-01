@@ -34,5 +34,4 @@ namespace Code.Gameplay.Features.DamageApplication
             }
         }
     }
-
 }

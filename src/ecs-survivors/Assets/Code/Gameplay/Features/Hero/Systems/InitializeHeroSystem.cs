@@ -29,10 +29,16 @@ namespace Code.Gameplay.Features.Hero.Systems
             _abilityFactory.CreateOrbitingMushroomAbility(1);
             _abilityFactory.CreateGarlicAuraAbility();
 
-            _statusApplier.ApplyStatus(new StatusSetup
+            /*_statusApplier.ApplyStatus(new StatusSetup
             {
                 StatusTypeId = StatusTypeId.PoisonEnchant,
                 Duration = 10
+            }, hero.Id, hero.Id);*/
+            
+            _statusApplier.ApplyStatus(new StatusSetup
+            {
+                StatusTypeId = StatusTypeId.ExplosiveEnchant,
+                Duration = 20
             }, hero.Id, hero.Id);
         }
     }

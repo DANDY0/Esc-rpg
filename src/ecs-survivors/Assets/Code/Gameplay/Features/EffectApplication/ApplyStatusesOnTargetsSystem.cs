@@ -17,17 +17,14 @@ namespace Code.Gameplay.Features.EffectApplication
                     GameMatcher.TargetsBuffer,
                     GameMatcher.StatusSetups));
         }
+        
         public void Execute()
         {
             foreach (GameEntity entity in _entities)
+            foreach (int targetID in entity.TargetsBuffer)
+            foreach (StatusSetup setup in entity.StatusSetups)
             {
-                foreach (int targetID in entity.TargetsBuffer)
-                {
-                    foreach (StatusSetup setup in entity.StatusSetups)
-                    {
-                        _statusApplier.ApplyStatus(setup, ProducerId(entity), targetID);
-                    }
-                }
+                _statusApplier.ApplyStatus(setup, ProducerId(entity), targetID);
             }
         }
 

@@ -12,7 +12,7 @@ namespace Code.Gameplay.Features.DamageApplication
         {
             _game = game;
             _effects = game.GetGroup(GameMatcher.AllOf(
-                GameMatcher.DamageEffect,
+                GameMatcher.HealEffect,
                 GameMatcher.EffectValue,
                 GameMatcher.TargetId));
         }

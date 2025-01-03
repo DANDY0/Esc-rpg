@@ -11,10 +11,14 @@ namespace Code.Gameplay.Features.Enchants.Systems
             
         }
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) 
-            => context.CreateCollector(GameMatcher.PoisonEnchant.Added());
+            => context.CreateCollector(GameMatcher
+                .AllOf(
+                    GameMatcher.EnchantVisuals,
+                    GameMatcher.Armament,
+                    GameMatcher.PoisonEnchant)
+                .Added());
 
-        protected override bool Filter(GameEntity entity) 
-            => entity.isArmament && entity.hasEnchantVisuals;
+        protected override bool Filter(GameEntity entity) => entity.isArmament && entity.hasEnchantVisuals;
 
         protected override void Execute(List<GameEntity> armaments)
         {

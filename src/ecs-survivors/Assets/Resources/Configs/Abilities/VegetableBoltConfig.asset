@@ -15,7 +15,7 @@ MonoBehaviour:
   AbilityId: 1
   Levels:
   - Cooldown: 1
-    ViewPrefab: {fileID: 1397400448013921085, guid: 08ce9f5922001044d87f0b92a159a8c4, type: 3}
+    ViewPrefab: {fileID: 2317523659501489138, guid: 024923be3b9b27b4a815de6bac7277a9, type: 3}
     EffectSetups:
     - EffectTypeId: 1
       Value: 1
@@ -24,6 +24,42 @@ MonoBehaviour:
       Value: 1
       Duration: 3
       Period: 1
+    - StatusTypeId: 3
+      Value: 0.35
+      Duration: 2
+      Period: 0.5
+    - StatusTypeId: 3
+      Value: 0.35
+      Duration: 2
+      Period: 0.5
+    - StatusTypeId: 3
+      Value: 0.35
+      Duration: 2
+      Period: 0.5
+    - StatusTypeId: 3
+      Value: 0.35
+      Duration: 2
+      Period: 0.5
+    - StatusTypeId: 3
+      Value: 0.35
+      Duration: 2
+      Period: 0.5
+    - StatusTypeId: 3
+      Value: 0.35
+      Duration: 2
+      Period: 0.5
+    - StatusTypeId: 3
+      Value: 0.35
+      Duration: 2
+      Period: 0.5
+    - StatusTypeId: 3
+      Value: 0.35
+      Duration: 2
+      Period: 0.5
+    - StatusTypeId: 3
+      Value: 0.35
+      Duration: 2
+      Period: 0.5
     - StatusTypeId: 3
       Value: 0.35
       Duration: 2

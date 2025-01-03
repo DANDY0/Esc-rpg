@@ -1,6 +1,7 @@
 ﻿using System;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.Enchants;
 using Code.Infrastructure.Identifiers;
 
 namespace Code.Gameplay.Features.Statuses
@@ -25,6 +26,9 @@ namespace Code.Gameplay.Features.Statuses
                     break;
                 case StatusTypeId.Freeze:
                     status = CreateFreezeStatus(setup, producerId, targetId);
+                    break;
+                case StatusTypeId.PoisonEnchant:
+                    status = CreatePoisonEnchantStatus(setup, producerId, targetId);
                     break;
                 
                 default:
@@ -52,7 +56,22 @@ namespace Code.Gameplay.Features.Statuses
                 .With(x => x.isStatus = true)
                 .With(x => x.isPoison = true);
         }
-        
+
+        private GameEntity CreatePoisonEnchantStatus(StatusSetup setup, int producerId, int targetId)
+        {
+            return CreateEntity.Empty()
+                .AddId(_identifiers.Next())
+                .AddStatusTypeId(StatusTypeId.PoisonEnchant)
+                .AddEnchantTypeId(EnchantTypeId.PoisonArmaments)
+                .AddEffectValue(setup.Value)
+                .AddProducerId(producerId)
+                .AddTargetId(targetId)
+                .With(x => x.isStatus = true)
+                .With(x => x.isPoison = true)
+                .With(x => x.isPoisonEnchant = true);
+            
+        }
+
         public GameEntity CreateFreezeStatus(StatusSetup setup, int producerId, int targetId)
         {
             return CreateEntity.Empty()

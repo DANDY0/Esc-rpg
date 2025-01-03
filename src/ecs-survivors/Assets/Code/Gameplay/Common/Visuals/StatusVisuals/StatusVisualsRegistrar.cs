@@ -1,5 +1,4 @@
 using Code.Infrastructure.View;
-using Entitas;
 
 namespace Code.Gameplay.Common.Visuals.StatusVisuals
 {

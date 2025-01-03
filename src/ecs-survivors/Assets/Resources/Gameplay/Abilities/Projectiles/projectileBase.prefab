@@ -112,8 +112,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1045153556455938967}
-  - component: {fileID: 7604695528526262236}
-  - component: {fileID: 6116180036570099195}
+  - component: {fileID: 2233428155174786892}
+  - component: {fileID: 682171310236643092}
+  - component: {fileID: 6184328489876713215}
   m_Layer: 0
   m_Name: projectileBase
   m_TagString: Untagged
@@ -137,7 +138,7 @@ Transform:
   - {fileID: 1065704985033883940}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7604695528526262236
+--- !u!114 &2233428155174786892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,10 +147,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3360128356117953061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511653e70f1b4434a642cfce8b90ee4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 883fb89e79f947cc80a88f458b86e8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6116180036570099195
+--- !u!114 &682171310236643092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,10 +159,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 3360128356117953061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a05134c594a6494d9f8c83798b4783ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 5113332479c6401981b6ee03b19560f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntityView: {fileID: 7604695528526262236}
+  EntityView: {fileID: 2233428155174786892}
+--- !u!114 &6184328489876713215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3360128356117953061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3adc2dae7674f85a3fcba1af80ec0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityView: {fileID: 2233428155174786892}
+  EnchantVisuals: {fileID: 5976046918540340669}
 --- !u!1 &7376349850620682343
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,8 +29,8 @@ namespace Code.Gameplay.Features.Loot.Systems
             foreach (GameEntity hero in _heroes)
             foreach (GameEntity pullable in _pullables)
             {
-                if (Vector3.Distance(hero.WorldPosition, pullable.WorldPosition) < CloseDistance) ;
-                pullable.isCollected = true;
+                if (Vector3.Distance(hero.WorldPosition, pullable.WorldPosition) <= CloseDistance)
+                    pullable.isCollected = true;
             }
         }
     }

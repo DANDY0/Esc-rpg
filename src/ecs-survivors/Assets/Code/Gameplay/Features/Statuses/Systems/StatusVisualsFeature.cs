@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Features.Statuses.StatusVisual;
+﻿using Code.Gameplay.Features.Enchants.Systems;
+using Code.Gameplay.Features.Statuses.StatusVisual;
 using Code.Gameplay.Features.Statuses.Systems.StatusVisual;
 using Code.Infrastructure.Systems;
 
@@ -13,6 +14,8 @@ namespace Code.Gameplay.Features.Statuses
             
             Add(systems.Create<UnApplyPoisonVisualsSystem>());
             Add(systems.Create<UnApplyFreezeVisualsSystem>());
+            
+            Add(systems.Create<RemoveUnappliedEnchantFromHolder>());
         }
     }
 }

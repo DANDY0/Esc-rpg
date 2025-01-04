@@ -6,8 +6,8 @@ namespace Code.Gameplay.Features.Loot.Systems
 {
     public class CastForPullablesSystem : IExecuteSystem
     {
-        private readonly IPhysicsService _physicsService;
         private readonly IGroup<GameEntity> _looters;
+        private readonly IPhysicsService _physicsService;
         private int _layerMask = CollisionLayer.Collectable.AsMask();
         private GameEntity[] _hitBUffer = new GameEntity[128];
 

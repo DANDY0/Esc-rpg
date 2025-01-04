@@ -1,6 +1,6 @@
 ﻿namespace Code.Gameplay.Features.Loot
 {
-    public enum LootTypeID
+    public enum LootTypeId
     {
         Unknown = 0,
         ExpGem = 1,

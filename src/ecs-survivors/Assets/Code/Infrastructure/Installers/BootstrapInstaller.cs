@@ -7,8 +7,10 @@ using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Abilities.Factory;
 using Code.Gameplay.Features.Armaments.Factory;
 using Code.Gameplay.Features.Effects;
+using Code.Gameplay.Features.Enchants.UiFactories;
 using Code.Gameplay.Features.Enemies.Factory;
 using Code.Gameplay.Features.Hero.Registrars;
+using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
@@ -36,6 +38,7 @@ namespace Code.Infrastructure.Installers
       BindCameraProvider();
       BindGameplayFactories();
       BindEntityIndeces();
+      BindUIFactories();
     }
 
     private void BindEntityIndeces()
@@ -74,9 +77,9 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IAbilityFactory>().To<AbilityFactory>().AsSingle(); 
       Container.Bind<IEffectsFactory>().To<EffectsFactory>().AsSingle(); 
       Container.Bind<IStatusFactory>().To<StatusFactory>().AsSingle(); 
+      Container.Bind<ILootFactory>().To<LootFactory>().AsSingle(); 
     }
 
-    
     private void BindInfrastructureServices()
     {
       Container.BindInterfacesTo<BootstrapInstaller>().FromInstance(this).AsSingle();
@@ -101,7 +104,12 @@ namespace Code.Infrastructure.Installers
     {
       Container.Bind<IInputService>().To<StandaloneInputService>().AsSingle();
     }
-    
+
+    private void BindUIFactories()
+    {
+      Container.Bind<IEnchantUiFactory>().To<EnchantUiFactory>().AsSingle();
+    }
+
     public void Initialize()
     {
       Container.Resolve<IStaticDataService>().LoadAll();

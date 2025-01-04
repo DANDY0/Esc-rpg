@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Features.Loot.Systems;
+﻿using Code.Gameplay.Features.LevelUp.Systems;
+using Code.Gameplay.Features.Loot.Systems;
 using Code.Infrastructure.Systems;
 using Unity.VisualScripting;
 
@@ -17,7 +18,7 @@ namespace Code.Gameplay.Features.Loot
             Add(systems.Create<CollectEffectItemSystem>());
             Add(systems.Create<CollectStatusItemSystem>());
 
-            
+            Add(systems.Create<UpdateExperienceMeterSystem>());
             
             Add(systems.Create<CleanupCollected>());
         }   

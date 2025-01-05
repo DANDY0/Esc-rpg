@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Code.Infrastructure.Installers
 {
-  public class SceneInitializationInstaller : MonoInstaller
+  public class SceneInitializatioInstaller : MonoInstaller
   {
     public List<MonoBehaviour> Initializers;
     

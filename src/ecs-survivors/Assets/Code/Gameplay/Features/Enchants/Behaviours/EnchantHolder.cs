@@ -8,7 +8,7 @@ namespace Code.Gameplay.Features.Enchants.Behaviours
     public class EnchantHolder: MonoBehaviour
     {
         public Transform EnchantLayout;
-        private IEnchantUiFactory _factory;
+         private IEnchantUiFactory _factory;
         private List<Enchant> _enchants = new();
 
         [Inject]

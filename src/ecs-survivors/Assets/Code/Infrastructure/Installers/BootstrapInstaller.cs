@@ -5,16 +5,20 @@ using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Abilities.Factory;
+using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Features.Armaments.Factory;
 using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.Enchants.UiFactories;
 using Code.Gameplay.Features.Enemies.Factory;
 using Code.Gameplay.Features.Hero.Registrars;
+using Code.Gameplay.Features.LevelUp.Services;
+using Code.Gameplay.Features.LevelUp.Windows;
 using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
+using Code.Gameplay.Windows;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Loading;
@@ -39,6 +43,7 @@ namespace Code.Infrastructure.Installers
       BindGameplayFactories();
       BindEntityIndeces();
       BindUIFactories();
+      BindUiServices();
     }
 
     private void BindEntityIndeces()
@@ -66,6 +71,13 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
       Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
       Container.Bind<IStatusApplier>().To<StatusApplier>().AsSingle();
+      Container.Bind<ILevelUpService>().To<LevelUpService>().AsSingle();
+      Container.Bind<IAbilityUpgradeService>().To<AbilityUpgradeService>().AsSingle();
+    }
+
+    private void BindUiServices()
+    {
+      Container.Bind<IWindowService>().To<WindowService>().AsSingle();
     }
 
     private void BindGameplayFactories()
@@ -107,7 +119,9 @@ namespace Code.Infrastructure.Installers
 
     private void BindUIFactories()
     {
+      Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
       Container.Bind<IEnchantUiFactory>().To<EnchantUiFactory>().AsSingle();
+      Container.Bind<IAbilityUiFactory>().To<AbilityUiFactory>().AsSingle();
     }
 
     public void Initialize()

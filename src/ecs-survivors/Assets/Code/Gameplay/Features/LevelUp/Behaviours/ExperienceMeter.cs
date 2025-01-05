@@ -8,7 +8,7 @@ namespace Code.Gameplay.Features.LevelUp.Behaviours
         public Slider Progresbar;
         public Image Fill;
 
-        public void SetExperience(float heroExperience, float experienceForLevelUp)
+        public void  SetExperience(float heroExperience, float experienceForLevelUp)
         {
             Fill.type = Image.Type.Tiled;
             Progresbar.value = heroExperience / experienceForLevelUp;

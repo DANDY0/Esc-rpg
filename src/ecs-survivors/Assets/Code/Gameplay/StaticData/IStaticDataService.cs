@@ -4,6 +4,7 @@ using Code.Gameplay.Features.Enchants;
 using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.Windows;
+using Code.Meta.Features.AfkGain;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -19,5 +20,6 @@ namespace Code.Gameplay.StaticData
     void LoadWindows();
     int MaxLevel();
     float ExperienceForLevel(int level);
+    AfkGainConfig AfkGainConfig { get; }
   }
 }

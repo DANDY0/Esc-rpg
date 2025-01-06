@@ -9,14 +9,32 @@
 public static class MetaComponentsLookup {
 
     public const int Destructed = 0;
+    public const int Duration = 1;
+    public const int GoldGainBoost = 2;
+    public const int Tick = 3;
+    public const int Gold = 4;
+    public const int GoldPerSecond = 5;
+    public const int Storage = 6;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
-        "Destructed"
+        "Destructed",
+        "Duration",
+        "GoldGainBoost",
+        "Tick",
+        "Gold",
+        "GoldPerSecond",
+        "Storage"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Common.CommonComponents.Destructed)
+        typeof(Code.Common.CommonComponents.Destructed),
+        typeof(Code.Meta.Features.Simulation.SimulationComponents.Duration),
+        typeof(Code.Meta.Features.Simulation.SimulationComponents.GoldGainBoost),
+        typeof(Code.Meta.Features.Simulation.SimulationComponents.Tick),
+        typeof(Code.Meta.Features.Storage.StorageComponents.Gold),
+        typeof(Code.Meta.Features.Storage.StorageComponents.GoldPerSecond),
+        typeof(Code.Meta.Features.Storage.StorageComponents.Storage)
     };
 }

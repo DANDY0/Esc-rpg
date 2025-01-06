@@ -9,6 +9,7 @@ using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Configs;
+using Code.Meta.Features.AfkGain;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -21,6 +22,9 @@ namespace Code.Gameplay.StaticData
     private Dictionary<WindowId, GameObject> _windowPrefabsById;
     private LevelUpConfig _levelUp;
     
+    private AfkGainConfig _afkGainConfig;
+    public AfkGainConfig AfkGainConfig => _afkGainConfig;
+    
     public void LoadAll()
     {
       LoadAbilities();
@@ -28,6 +32,7 @@ namespace Code.Gameplay.StaticData
       LoadLoot();
       LoadLevelUpRules();
       LoadWindows();
+      LoadAfkGainConfig();
     }
 
     public AbilityConfig GetAbilityConfig(AbilityId abilityId)
@@ -83,6 +88,11 @@ namespace Code.Gameplay.StaticData
       _enchantById = Resources
         .LoadAll<EnchantConfig>("Configs/Enchants")
         .ToDictionary(x=>x.TypeId, x => x); 
+    }
+
+    private void LoadAfkGainConfig()
+    {
+      _afkGainConfig = Resources.Load<AfkGainConfig>("Configs/AfkGainConfig");
     }
 
     private void LoadAbilities()

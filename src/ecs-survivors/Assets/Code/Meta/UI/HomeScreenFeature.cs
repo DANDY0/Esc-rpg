@@ -1,6 +1,7 @@
 ﻿using Code.Common.Destruct;
 using Code.Infrastructure.Systems;
 using Code.Meta.Features.Simulation;
+using Code.Progress;
 
 namespace Code.Meta.UI
 {
@@ -12,6 +13,7 @@ namespace Code.Meta.UI
 
             Add(systems.Create<SimulationFeature>());
             
+            Add(systems.Create<PeriodicallySaveProgressSystem>(10f));
 
             Add(systems.Create<CleanupTickSystem>());
             Add(systems.Create<ProcessDestructedFeature>());

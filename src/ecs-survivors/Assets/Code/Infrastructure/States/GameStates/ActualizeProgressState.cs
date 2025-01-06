@@ -8,6 +8,7 @@ using Code.Meta;
 using Code.Meta.Features.Simulation;
 using Code.Progress.Data;
 using Code.Progress.Provider;
+using Code.Progress.SaveLoad;
 using UnityEngine;
 
 namespace Code.Infrastructure.States.GameStates
@@ -18,6 +19,8 @@ namespace Code.Infrastructure.States.GameStates
         private readonly IProgressProvider _progressProvider;
         private readonly ITimeService _timeService;
         private readonly ISystemFactory _systemFactory;
+        private readonly ISaveLoadService _saveLoadService;
+        
         private ActualizationFeature _actualizationFeature;
         private TimeSpan _twoDays = TimeSpan.FromDays(2);
 
@@ -26,12 +29,14 @@ namespace Code.Infrastructure.States.GameStates
             IGameStateMachine stateMachine,
             IProgressProvider progressProvider,
             ISystemFactory systemFactory,
+            ISaveLoadService saveLoadService,
             ITimeService timeService)
         {
             _stateMachine = stateMachine;
             _progressProvider = progressProvider;
             _timeService = timeService;
             _systemFactory = systemFactory;
+            _saveLoadService = saveLoadService;
         }
 
         public void Enter()
@@ -39,7 +44,7 @@ namespace Code.Infrastructure.States.GameStates
             _actualizationFeature = _systemFactory.Create<ActualizationFeature>();
 
             //simulation
-            _progressProvider.ProgressData.LastSimulationTickTime = _timeService.UtcNow - _twoDays;
+            // _progressProvider.ProgressData.LastSimulationTickTime = _timeService.UtcNow - _twoDays;
             
             ActualizeProgress(_progressProvider.ProgressData);  
             
@@ -48,9 +53,10 @@ namespace Code.Infrastructure.States.GameStates
 
         private void ActualizeProgress(ProgressData data)
         {
-            CreateMetaEntity.Empty()
+            // test booster
+            /*CreateMetaEntity.Empty()
                 .AddGoldGainBoost(1)
-                .AddDuration((float)TimeSpan.FromDays(1).TotalSeconds);
+                .AddDuration((float)TimeSpan.FromDays(1).TotalSeconds);*/
             
             _actualizationFeature.Initialize();
             _actualizationFeature.DeactivateReactiveSystems();
@@ -72,6 +78,8 @@ namespace Code.Infrastructure.States.GameStates
             }
 
             data.LastSimulationTickTime = _timeService.UtcNow;
+            
+            _saveLoadService.SaveProgress();
         }
 
         private DateTime GetLimiedTime(ProgressData data)

@@ -12,6 +12,7 @@ namespace Code.Meta.UI
             Add(systems.Create<EmitTickSystem>());
 
             Add(systems.Create<SimulationFeature>());
+            Add(systems.Create<HomeUIFeature>());
             
             Add(systems.Create<PeriodicallySaveProgressSystem>(10f));
 

@@ -6407,10 +6407,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HomeHUD
       objectReference: {fileID: 0}
-    - target: {fileID: 5699350122727513981, guid: b0488b8f98f9ba84e833022729332b01, type: 3}
-      propertyPath: GoldHolderRoot
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6448337159443437977, guid: b0488b8f98f9ba84e833022729332b01, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

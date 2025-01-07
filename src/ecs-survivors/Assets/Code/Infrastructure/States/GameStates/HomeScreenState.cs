@@ -1,6 +1,7 @@
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.Systems;
 using Code.Meta.UI;
+using Code.Meta.UI.GoldHolder.Service;
 
 namespace Code.Infrastructure.States.GameStates
 {
@@ -8,12 +9,14 @@ namespace Code.Infrastructure.States.GameStates
   {
     private readonly ISystemFactory _systems;
     private readonly GameContext _game;
+    private readonly IStorageUiService _storageUiService;
     private HomeScreenFeature _homeScreenFeature;
 
-    public HomeScreenState( ISystemFactory systems, GameContext game)
+    public HomeScreenState( ISystemFactory systems, GameContext game, IStorageUiService storageUiService)
     {
       _systems = systems;
       _game = game;
+      _storageUiService = storageUiService;
     }
     public void Enter()
     {
@@ -29,6 +32,7 @@ namespace Code.Infrastructure.States.GameStates
 
     public void Exit()
     {
+      _storageUiService.Cleanup();
       _homeScreenFeature.DeactivateReactiveSystems();
       _homeScreenFeature.ClearReactiveSystems();
 

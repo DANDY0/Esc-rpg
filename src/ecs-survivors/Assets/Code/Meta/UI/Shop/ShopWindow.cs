@@ -51,33 +51,35 @@ namespace Code.Meta.UI.Shop
 
         private void UpdateBoosterState()
         {
-            bool itemsCanBeBought = Math.Abs(_storage.GoldGameBoost - 0) <= float.Epsilon;
+            bool itemsCanBeBought = Math.Abs(_storage.GoldGainBoost - 0) <= float.Epsilon;
 
-            foreach (var shopItem in _items)
-            {
+            foreach (var shopItem in _items) 
                 shopItem.UpdateAvailability(itemsCanBeBought);
-            }
         }
 
         protected override void UnsubscribeUpdates()
         {
             _shop.ShopChanged -= Refresh;
+            _storage.GoldBoostChanged -= UpdateBoosterState;
         }
 
         private void Refresh()
         {
             ClearItems();
             
-            List<ShopItemConfig> availableItems = _shop.GetAvailableShopItems();
+            List<ShopItemConfig> availableItems = _shop.GetAvailableShopItems;
 
             NoItemsAvailable.SetActive(availableItems.Count == 0);
             
             FillItems(availableItems);
+            
+            UpdateBoosterState();
         }
 
         private void ClearItems()
         {
             _items.ForEach(x=> Destroy(x.gameObject));
+            _items.Clear();
         }
 
         private void FillItems(List<ShopItemConfig> availableItems)

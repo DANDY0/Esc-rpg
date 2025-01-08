@@ -6,7 +6,7 @@ namespace Code.Meta.UI.GoldHolder.Service
     {
         event Action GoldChanged;
         float CurrentGold { get; }
-        float GoldGameBoost { get; }
+        float GoldGainBoost { get; }
         void UpdateCurrentGold(float gold);
         void Cleanup();
         void UpdateGoldGainBoost(float boost);

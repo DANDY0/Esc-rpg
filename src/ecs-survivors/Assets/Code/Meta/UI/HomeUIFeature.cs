@@ -8,10 +8,13 @@ namespace Code.Meta.UI
     {
         public HomeUIFeature(ISystemFactory systems)
         {
-            systems.Create<InitializePurchasedItemsSystem>();
+            Add(systems.Create<InitializePurchasedItemsSystem>());
             
-            systems.Create<RefreshGoldGainBoostSystem>();
-            systems.Create<RefreshGoldSystem>();
+            Add(systems.Create<RefreshGoldGainBoostSystem>());
+            Add(systems.Create<RefreshGoldSystem>());
+            
+            Add(systems.Create<ShopFeature>());
+
         }
     }
 }

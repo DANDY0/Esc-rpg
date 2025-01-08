@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Code.Gameplay.StaticData;
 using Code.Meta.UI.Shop.Items;
+using Unity.VisualScripting;
 
 namespace Code.Meta.UI.Shop.Service
 {
@@ -10,6 +11,7 @@ namespace Code.Meta.UI.Shop.Service
         private List<ShopItemId> _purchasedItems = new();
         private Dictionary<ShopItemId, ShopItemConfig> _availableItems = new();
         private readonly IStaticDataService _staticData;
+        private List<ShopItemConfig> _getAvailableShopItems;
 
         public event Action ShopChanged;
         
@@ -23,7 +25,10 @@ namespace Code.Meta.UI.Shop.Service
             RefreshAvailableItems();
         }
 
-        public List<ShopItemConfig> GetAvailableShopItems() 
+        public ShopItemConfig GetConfig(ShopItemId shopItemId) 
+            => _availableItems.GetValueOrDefault(shopItemId);
+
+        public List<ShopItemConfig> GetAvailableShopItems
             => new(_availableItems.Values);
 
         public void Cleanup()
@@ -33,8 +38,16 @@ namespace Code.Meta.UI.Shop.Service
 
               ShopChanged = null;
         }
-        
-        
+
+        public void UpdatePurchasedItem(ShopItemId shopItemId)
+        {
+            _availableItems.Remove(shopItemId);
+            _purchasedItems.Add(shopItemId);
+            
+            ShopChanged?.Invoke();
+        }
+
+
         private void RefreshAvailableItems()
         {
             foreach (var itemConfig in _staticData.GetShopItemConfigs())

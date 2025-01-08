@@ -11,7 +11,7 @@ namespace Code.Meta.UI.GoldHolder.Service
         public event Action GoldBoostChanged;
         
         public float CurrentGold => _currentGold;
-        public float GoldGameBoost => _goldGainBoost;
+        public float GoldGainBoost => _goldGainBoost;
 
         public void UpdateGoldGainBoost(float boost)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using Code.Common.Entity;
 using Code.Meta.UI.GoldHolder.Service;
 using TMPro;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace Code.Meta.UI.Shop.Items
 {
     public class ShopItem: MonoBehaviour
     {
+        public ShopItemId Id;
+        
         public Image Icon;
         public TextMeshProUGUI Price;
         public TextMeshProUGUI Duration;
@@ -38,17 +41,23 @@ namespace Code.Meta.UI.Shop.Items
             
         }
 
-        private void OnDestroy() 
-            => _storage.GoldChanged -= UpdatePriceTreshold;
+        private void OnDestroy()
+        {
+            _storage.GoldChanged -= UpdatePriceTreshold;
+            BuyButton.onClick.RemoveListener(BuyItem);
+        }
 
         public void Setup(ShopItemConfig config)
         {
+            Id = config.ShopItemId;
             Icon.sprite = config.Icon;
             Price.text = config.Price.ToString();
-            Duration.text = TimeSpan.FromSeconds(config.Duration).ToString("m'm 's's");
+            Duration.text = TimeSpan.FromSeconds(config.Duration).ToString("m'm 's's'");
             Boost.text = config.Boost.ToString("+0%");
-
+            
             _price = config.Price;
+            
+            BuyButton.onClick.AddListener(BuyItem);
         }
 
         private void UpdatePriceTreshold()
@@ -71,6 +80,14 @@ namespace Code.Meta.UI.Shop.Items
         private void RefreshBuyButton()
         {
             BuyButton.interactable = _isAvailable;
+        }
+
+        private void BuyItem()
+        {
+            CreateMetaEntity.Empty()
+                .AddShopItemId(Id)
+                .isBuyRequest = true;
+                ;
         }
     }
 }

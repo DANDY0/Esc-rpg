@@ -28,7 +28,9 @@ using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View.Factory;
 using Code.Meta.UI.GoldHolder.Service;
+using Code.Meta.UI.Shop;
 using Code.Meta.UI.Shop.Service;
+using Code.Meta.UI.Shop.Systems;
 using Code.Meta.UI.Shop.UIFactory;
 using Code.Progress.Provider;
 using Code.Progress.SaveLoad;
@@ -120,6 +122,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IEffectsFactory>().To<EffectsFactory>().AsSingle();
       Container.Bind<IStatusFactory>().To<StatusFactory>().AsSingle();
       Container.Bind<ILootFactory>().To<LootFactory>().AsSingle();
+      Container.Bind<IShopItemFactory>().To<ShopItemFactory>().AsSingle();
     }
 
     private void BindEntityIndices()

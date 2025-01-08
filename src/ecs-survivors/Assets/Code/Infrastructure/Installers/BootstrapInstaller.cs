@@ -28,6 +28,8 @@ using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View.Factory;
 using Code.Meta.UI.GoldHolder.Service;
+using Code.Meta.UI.Shop.Service;
+using Code.Meta.UI.Shop.UIFactory;
 using Code.Progress.Provider;
 using Code.Progress.SaveLoad;
 using Zenject;
@@ -159,7 +161,10 @@ namespace Code.Infrastructure.Installers
     {
       Container.Bind<IWindowService>().To<WindowService>().AsSingle();
       Container.Bind<IStorageUiService>().To<StorageUiService>().AsSingle();
+      Container.Bind<IShopUIService>().To<ShopUIService>().AsSingle();
 
+
+      
     }
 
     private void BindUIFactories()
@@ -167,6 +172,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
       Container.Bind<IEnchantUiFactory>().To<EnchantUiFactory>().AsSingle();
       Container.Bind<IAbilityUiFactory>().To<AbilityUiFactory>().AsSingle();
+      Container.Bind<IShopUIFactory>().To<ShopUIFactory>().AsSingle();
     }
     
     public void Initialize()

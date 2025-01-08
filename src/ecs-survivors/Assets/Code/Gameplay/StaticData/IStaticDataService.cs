@@ -24,6 +24,6 @@ namespace Code.Gameplay.StaticData
     float ExperienceForLevel(int level);
     AfkGainConfig AfkGainConfig { get; }
     ShopItemConfig GetShopItemConfig(ShopItemId shopItemId);
-    List<ShopItemConfig> GetShopItemsConfig();
+    List<ShopItemConfig> GetShopItemConfigs();
   }
 }

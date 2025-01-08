@@ -55,7 +55,7 @@ namespace Code.Gameplay.StaticData
     public ShopItemConfig GetShopItemConfig(ShopItemId shopItemId) 
       => (_shopItemConfigs.FirstOrDefault(x => x.ShopItemId == shopItemId));
 
-    public List<ShopItemConfig> GetShopItemsConfig() 
+    public List<ShopItemConfig> GetShopItemConfigs() 
       => _shopItemConfigs;
     
     public EnchantConfig GetEnchantConfig(EnchantTypeId typeId)

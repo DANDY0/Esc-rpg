@@ -7,7 +7,8 @@
  using Code.Gameplay.Features.Enchants;
  using Code.Gameplay.Features.Enchants.Systems;
  using Code.Gameplay.Features.Enemies;
-using Code.Gameplay.Features.Hero;
+ using Code.Gameplay.Features.GameOver;
+ using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.LevelUp;
 using Code.Gameplay.Features.LifeTime;
 using Code.Gameplay.Features.Loot;
@@ -49,6 +50,8 @@ namespace Code.Gameplay
       Add(systems.Create<StatusFeature>());
       Add(systems.Create<StatsFeature>());
 
+      Add(systems.Create<GameOverOnHeroDeathSystem>());
+      
       Add(systems.Create<ProcessDestructedFeature>());
     }
   }

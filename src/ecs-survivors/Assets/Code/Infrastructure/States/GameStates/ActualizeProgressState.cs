@@ -13,7 +13,7 @@ using UnityEngine;
 
 namespace Code.Infrastructure.States.GameStates
 {
-    public class ActualizeProgressState: IState
+    public class ActualizeProgressState: SimpleState
     {
         private readonly IGameStateMachine _stateMachine;
         private readonly IProgressProvider _progressProvider;
@@ -39,7 +39,7 @@ namespace Code.Infrastructure.States.GameStates
             _saveLoadService = saveLoadService;
         }
 
-        public void Enter()
+        public override void Enter()
         {
             _actualizationFeature = _systemFactory.Create<ActualizationFeature>();
 
@@ -89,7 +89,7 @@ namespace Code.Infrastructure.States.GameStates
                 : data.LastSimulationTickTime + _twoDays;
         }
 
-        public void Exit()
+        public void BeginExit()
         {
             _actualizationFeature.Cleanup();
             _actualizationFeature.TearDown();

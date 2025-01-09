@@ -1,7 +1,11 @@
+using RSG;
+
 namespace Code.Infrastructure.States.StateInfrastructure
 {
   public interface IExitableState
   {
-    void Exit();
+    IPromise BeginExit();
+    void EndExit();
+
   }
 }
